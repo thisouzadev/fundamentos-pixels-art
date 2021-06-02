@@ -18,6 +18,7 @@ function pixelsBoards(linha, coluna) {
       const button = document.createElement('button');
       div.appendChild(button);
       button.className = 'pixel';
+      button.setAttribute.backgroundColor = 'rgb(255, 255, 255)';
     }
   }
 }
@@ -34,14 +35,3 @@ function selectedColor() {
   }
 }
 selectedColor();
-
-function changeColor() {
-  for (let index = 0; index < getColor.length; index += 1) {
-    getColor[index].addEventListener('click', () => {
-      const getSelect = document.querySelector('.selected');
-      const getPixels = document.querySelectorAll('.pixels');
-      getPixels[0].style.backgroundColor = 'black';
-    });
-  }
-}
-changeColor();
