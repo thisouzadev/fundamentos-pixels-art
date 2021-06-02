@@ -4,10 +4,9 @@ getColor[1].style.backgroundColor = 'yellow';
 getColor[2].style.backgroundColor = 'green';
 getColor[3].style.backgroundColor = 'blue';
 
-const line = 5;
-const columns = 5;
+let line = 5;
+let columns = 5;
 
-console.log(line.length);
 function pixelsBoards(linha, coluna) {
   const getPixelsBoards = document.querySelector('#pixel-board');
   for (let index = 0; index < linha; index += 1) {
@@ -57,3 +56,18 @@ function clearBoard() {
   });
 }
 clearBoard();
+
+// bonus
+
+function changeBoardSize() {
+  const getGenerateBoards = document.querySelector('#generate-board');
+  const getInput = document.querySelector('#board-size');
+  getGenerateBoards.addEventListener('click', () => {
+    //  pixelsBoards(getInput.value, getInput.value);
+    const getPixel = document.querySelectorAll('.line');
+    //for (let index = 0; index < getPixel.length; index += 1) {
+      getGenerateBoards.removeChild(getPixel);
+   // }
+  });
+}
+changeBoardSize();
