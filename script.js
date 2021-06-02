@@ -46,3 +46,14 @@ function changeColor() {
   }
 }
 changeColor();
+
+function clearBoard() {
+  const getclear = document.querySelector('#clear');
+  getclear.addEventListener('click', () => {
+    const getPixel = document.querySelectorAll('.pixel');
+    for (let index = 0; index < getPixel.length; index += 1) {
+      getPixel[index].style.backgroundColor = 'rgb(255, 255, 255)';
+    }
+  });
+}
+clearBoard();
