@@ -1,11 +1,12 @@
 const getColor = document.querySelectorAll('.color');
+for (let index = 1; index < getColor.length; index += 1) {
+  getColor[index].style.backgroundColor = `rgb(${(Math.random() * 255)}, 
+    ${(Math.random() * 255)}, ${(Math.random() * 255)})`;
+}
 getColor[0].style.backgroundColor = 'black';
-getColor[1].style.backgroundColor = 'yellow';
-getColor[2].style.backgroundColor = 'green';
-getColor[3].style.backgroundColor = 'blue';
 
-let line = 5;
-let columns = 5;
+const line = 5;
+const columns = 5;
 
 function pixelsBoards(linha, coluna) {
   const getPixelsBoards = document.querySelector('#pixel-board');
@@ -61,6 +62,7 @@ clearBoard();
 // referencia:
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
 // para remover todos os filhos
+// dica do lucas Caribe atribuir '' vazia pra remover
 function changeBoardSize() {
   const getGenerateBoard = document.querySelector('#generate-board');
   const getInput = document.querySelector('#board-size');
@@ -76,6 +78,8 @@ function changeBoardSize() {
       getInput.value = 50;
     }
     pixelsBoards(getInput.value, getInput.value);
+    selectedColor();
+    changeColor();
   });
 }
 changeBoardSize();
