@@ -47,7 +47,7 @@ function changeColor() {
 changeColor();
 
 function clearBoard() {
-  const getclear = document.querySelector('#clear');
+  const getclear = document.querySelector('#clear-board');
   getclear.addEventListener('click', () => {
     const getPixel = document.querySelectorAll('.pixel');
     for (let index = 0; index < getPixel.length; index += 1) {
@@ -58,16 +58,24 @@ function clearBoard() {
 clearBoard();
 
 // bonus
-
+// referencia:
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
+// para remover todos os filhos
 function changeBoardSize() {
-  const getGenerateBoards = document.querySelector('#generate-board');
+  const getGenerateBoard = document.querySelector('#generate-board');
   const getInput = document.querySelector('#board-size');
-  getGenerateBoards.addEventListener('click', () => {
-    //  pixelsBoards(getInput.value, getInput.value);
-    const getPixel = document.querySelectorAll('.line');
-    //for (let index = 0; index < getPixel.length; index += 1) {
-      getGenerateBoards.removeChild(getPixel);
-   // }
+  getGenerateBoard.addEventListener('click', () => {
+    if (getInput.value === '') {
+      alert('Board inválido!');
+    }
+    const pixelBoard = document.getElementById('pixel-board');
+    pixelBoard.innerHTML = '';
+    if (getInput.value <= 5) {
+      getInput.value = 5;
+    } else if (getInput.value >= 50) {
+      getInput.value = 50;
+    }
+    pixelsBoards(getInput.value, getInput.value);
   });
 }
 changeBoardSize();
